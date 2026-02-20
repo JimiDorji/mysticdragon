@@ -38,8 +38,8 @@ export default function Contact() {
     }, []);
 
     const contactInfo = [
-        { icon: "📍", label: "Address", value: "Olakha, Thimphu, Bhutan" },
-        { icon: "✉️", label: "Email", value: "info@mysticdragon.com" },
+        { icon: "📍", label: "Address", value: "Babesa, Thimphu, Bhutan" },
+        { icon: "✉️", label: "Email", value: "mysticdragontousandtravel26@gmail.com" },
         { icon: "☎️", label: "Phone", value: "+975 17587471" },
         { icon: "🕘", label: "Business Hours", value: "9:00 AM – 5:00 PM (BST)" },
     ];
@@ -96,7 +96,18 @@ export default function Contact() {
                                     <h4 className="text-sm font-medium text-blue-200 mb-1">
                                         {info.label}
                                     </h4>
-                                    <p className="text-white font-semibold">{info.value}</p>
+                                    {info.label === "Email" ? (
+                                        <a
+                                            href={`mailto:${info.value}`}
+                                            className="text-white font-semibold hover:text-blue-200 transition-colors break-all"
+                                        >
+                                            {info.value}
+                                        </a>
+                                    ) : (
+                                        <p className="text-white font-semibold break-words">
+                                            {info.value}
+                                        </p>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -113,22 +124,35 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* MAP */}
+                    {/* MAP WITH EXACT COORDINATES */}
                     <div className="space-y-6">
                         <div className="rounded-3xl bg-white/5 p-4 backdrop-blur-xl border border-white/20">
                             <iframe
-                                title="Bhutan Office Map"
-                                src="https://www.google.com/maps?q=Thimphu,Bhutan&output=embed"
+                                title="Mystic Dragon Tours Office - Babesa, Thimphu"
+                                src="https://www.google.com/maps?q=27.4310679,89.6497276&z=15&output=embed"
                                 className="h-96 w-full rounded-2xl border-0 shadow-xl"
                                 loading="lazy"
                                 allowFullScreen
                             />
                         </div>
 
-                        {/* Map Attribution */}
-                        <p className="text-center text-xs text-blue-300/60">
-                            Mystic Dragon Tours & Travels • Olakha, Thimphu, Bhutan
-                        </p>
+                        {/* Map Location Details */}
+                        <div className="text-center space-y-1">
+                            <p className="text-sm text-blue-200/80">
+                                <span className="font-semibold text-white">Mystic Dragon Tours & Travels</span>
+                            </p>
+                            <p className="text-xs text-blue-300/60">
+                                Babesa, Thimphu, Bhutan • 27.4311° N, 89.6497° E
+                            </p>
+                            <a
+                                href="https://www.google.com/maps/dir/?api=1&destination=27.4310679,89.6497276"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block mt-2 text-xs text-blue-300 hover:text-white transition-colors underline underline-offset-2"
+                            >
+                                Get Directions →
+                            </a>
+                        </div>
                     </div>
                 </div>
 

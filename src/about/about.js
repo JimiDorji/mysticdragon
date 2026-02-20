@@ -21,7 +21,7 @@ export default function About() {
         {
             title: "Local Expertise",
             text: "Guided by Bhutanese professionals with deep cultural and historical knowledge.",
-            stat: "15+ Years",
+            stat: "3+ Years",
             color: "from-blue-500 to-blue-700",
         },
         {
@@ -48,7 +48,7 @@ export default function About() {
         { value: "98%", label: "Guest Satisfaction" },
         { value: "2,500+", label: "Travelers Guided" },
         { value: "50+", label: "Local Partnerships" },
-        { value: "10", label: "Awards Won" },
+        { value: "24/7", label: "Support Available" },
     ];
 
     return (
@@ -126,7 +126,7 @@ export default function About() {
                             <span className="text-3xl">🏔️</span>
                             <div>
                                 <p className="text-sm font-medium text-white">Operating From</p>
-                                <p className="text-sm text-blue-200">Paro Taktsang Trail, Paro Valley, Bhutan</p>
+                                <p className="text-sm text-blue-200">Babesa, Thimphu, Bhutan</p>
                             </div>
                         </div>
                     </div>

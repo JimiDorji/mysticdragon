@@ -34,8 +34,8 @@ export default function Footer() {
     ];
 
     const socialLinks = [
-        { name: "Instagram", icon: "📷", href: "#" },
-        { name: "Facebook", icon: "📘", href: "#" },
+        { name: "Instagram", icon: "📷", href: "https://www.instagram.com/mysticdragontoursandtravels" },
+        { name: "Facebook", icon: "📘", href: "https://www.facebook.com/mysticdragontoursandtravels" },
         { name: "YouTube", icon: "▶️", href: "#" },
         { name: "LinkedIn", icon: "💼", href: "#" },
         { name: "Twitter", icon: "🐦", href: "#" },
@@ -131,15 +131,15 @@ export default function Footer() {
                     />
                     <ContactCard
                         icon="📞"
-                        label="Phone"
+                        label="Whatsapp"
                         value="+975 17587471"
                         href="tel:+97517587471"
                     />
                     <ContactCard
                         icon="🏔️"
-                        label="Base Camp"
-                        value="Paro Taktsang Trail"
-                        sub="Paro Valley, Bhutan"
+                        label="Office Location"
+                        value="Babesa"
+                        sub="Thimphu, Bhutan"
                     />
                 </div>
 

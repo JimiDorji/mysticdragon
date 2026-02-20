@@ -8,8 +8,8 @@ import logo from "../assets/img/logo.png";
 const NAV_ITEMS = [
     { label: "Home", href: "#home" },
     { label: "Tours", href: "#tours" },
-    { label: "Trekkings", href: "#trekkings" },
-    { label: "Festival", href: "#festival" },
+    // { label: "Trekkings", href: "#trekkings" },
+    //{ label: "Festival", href: "#festival" },
     { label: "About Us", href: "#about" },
     { label: "Contact", href: "#contact" },
 ];
@@ -85,25 +85,25 @@ export default function Header() {
     return (
         <header
             className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled
-                ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-blue-900/10"
-                : "bg-gradient-to-b from-blue-900/90 via-blue-800/70 to-transparent backdrop-blur-md"
+                ? "bg-white shadow-lg backdrop-blur-xl shadow-blue-900/10"
+                : "bg-gradient-to-br from-[#0B1E33] via-[#1A3B5C] to-[#2C5282] backdrop-blur-sm"
                 }`}
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between sm:h-20 transition-all">
-                    {/* LOGO - Fixed sizing and fit */}
+                    {/* LOGO - Fixed sizing and fit with contrast shadow */}
                     <a
                         href="#home"
                         onClick={(e) => scrollToSection(e, "#home")}
                         className="group flex items-center gap-3"
                     >
-                        <div className="relative h-12 w-12 rounded-xl overflow-hidden flex items-center justify-center sm:h-14 sm:w-14 bg-white shadow-md">
+                        <div className="relative h-12 w-12 rounded-xl overflow-hidden flex items-center justify-center sm:h-14 sm:w-14 bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg shadow-blue-900/30 ring-2 ring-white/20">
                             <div className="relative h-10 w-10 sm:h-12 sm:w-12">
                                 <Image
                                     src={logo}
                                     alt="Mystic Dragon Logo"
                                     fill
-                                    className="object-contain"
+                                    className="object-contain brightness-110"
                                     priority
                                     sizes="(max-width: 768px) 40px, 48px"
                                 />
@@ -112,14 +112,14 @@ export default function Header() {
 
                         <div>
                             <h1
-                                className={`text-xl font-bold tracking-wide transition-colors sm:text-2xl ${isScrolled ? "text-slate-900" : "text-white"
+                                className={`text-xl font-bold tracking-wide transition-colors sm:text-2xl ${isScrolled ? "text-slate-900" : "text-white drop-shadow-md"
                                     }`}
                             >
                                 Mystic
-                                <span className="text-blue-400">Dragon</span>
+                                <span className="text-white-300 drop-shadow-md">Dragon</span>
                             </h1>
                             <p
-                                className={`text-[10px] font-medium sm:text-xs ${isScrolled ? "text-slate-500" : "text-blue-200"
+                                className={`text-[10px] font-medium sm:text-xs ${isScrolled ? "text-slate-500" : "text-blue-200 drop-shadow"
                                     }`}
                             >
                                 • Tours & Travels
@@ -127,7 +127,7 @@ export default function Header() {
                         </div>
                     </a>
 
-                    {/* DESKTOP NAV */}
+                    {/* DESKTOP NAV - Brighter text when not scrolled */}
                     <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
                         {NAV_ITEMS.map(({ label, href }) => {
                             const id = href.slice(1);
@@ -140,16 +140,15 @@ export default function Header() {
                                     onClick={(e) => scrollToSection(e, href)}
                                     className={`${linkBase} ${isScrolled
                                         ? "text-slate-700 hover:text-blue-600 after:bg-gradient-to-r after:from-blue-500 after:to-blue-700"
-                                        : "text-white/90 hover:text-white after:bg-white"
-                                        } ${active ? "font-semibold" : ""
-                                        } text-sm xl:text-base`}
+                                        : "text-white hover:text-blue-200 drop-shadow-md after:bg-blue-200"
+                                        } ${active ? "font-semibold" : ""} text-sm xl:text-base`}
                                 >
                                     {label}
                                     {active && (
                                         <span
                                             className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${isScrolled
                                                 ? "bg-gradient-to-r from-blue-500 to-blue-700"
-                                                : "bg-white"
+                                                : "bg-blue-300"
                                                 }`}
                                         />
                                     )}
@@ -158,50 +157,43 @@ export default function Header() {
                         })}
                     </nav>
 
-                    {/* DESKTOP ACTIONS */}
+                    {/* DESKTOP ACTIONS - Better contrast */}
                     <div className="hidden lg:flex items-center gap-4 xl:gap-6">
                         <button
                             aria-label="Search"
-                            className={`rounded-xl p-2 transition ${isScrolled ? "hover:bg-slate-100" : "hover:bg-white/10"
+                            className={`rounded-xl p-2 transition ${isScrolled
+                                ? "hover:bg-slate-100 text-slate-600"
+                                : "text-white hover:bg-white/20 drop-shadow-md"
                                 }`}
                         >
-                            <Search
-                                className={`h-5 w-5 ${isScrolled ? "text-slate-600" : "text-white"
-                                    }`}
-                            />
+                            <Search className="h-5 w-5" />
                         </button>
 
                         <div
-                            className={`hidden xl:flex items-center gap-2 rounded-xl px-4 py-2 backdrop-blur-md border ${isScrolled
+                            className={`hidden xl:flex items-center gap-2 rounded-xl px-4 py-2 backdrop-blur-md border-2 ${isScrolled
                                 ? "bg-blue-50 border-blue-200"
-                                : "bg-white/20 border-white/30"
+                                : "bg-white/10 border-white/30 text-white shadow-lg"
                                 }`}
                         >
-                            <Phone
-                                className={`h-4 w-4 ${isScrolled ? "text-blue-600" : "text-white"
-                                    }`}
-                            />
-                            <span
-                                className={`text-sm font-medium whitespace-nowrap ${isScrolled ? "text-blue-700" : "text-white"
-                                    }`}
-                            >
+                            <Phone className={`h-4 w-4 ${isScrolled ? "text-blue-600" : "text-white drop-shadow"}`} />
+                            <span className={`text-sm font-medium whitespace-nowrap ${isScrolled ? "text-blue-700" : "text-white drop-shadow-md"}`}>
                                 +975-17587471
                             </span>
                         </div>
 
                         <button
                             onClick={(e) => scrollToSection(e, "#contact")}
-                            className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:scale-105 hover:shadow-xl active:scale-95 xl:px-6 xl:py-3"
+                            className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:scale-105 hover:shadow-xl hover:from-blue-600 hover:to-blue-700 active:scale-95 xl:px-6 xl:py-3 ring-2 ring-white/20"
                         >
                             CONTACT US
                         </button>
                     </div>
 
-                    {/* MOBILE ACTIONS */}
+                    {/* MOBILE ACTIONS - Better contrast */}
                     <div className="flex items-center gap-3 lg:hidden">
                         <button
                             aria-label="Search"
-                            className={`rounded-xl p-2 transition ${isScrolled ? "text-slate-700" : "text-white"
+                            className={`rounded-xl p-2 transition ${isScrolled ? "text-slate-700" : "text-white drop-shadow-md"
                                 }`}
                         >
                             <Search className="h-5 w-5" />
@@ -210,7 +202,7 @@ export default function Header() {
                         <button
                             aria-label="Toggle menu"
                             onClick={() => setIsOpen((v) => !v)}
-                            className={`rounded-xl p-2 transition ${isScrolled ? "text-slate-700" : "text-white"
+                            className={`rounded-xl p-2 transition ${isScrolled ? "text-slate-700" : "text-white drop-shadow-md"
                                 }`}
                         >
                             {isOpen ? (
@@ -222,14 +214,14 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* MOBILE MENU */}
+                {/* MOBILE MENU - Brighter background for visibility */}
                 <div
                     className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen
                         ? "max-h-[500px] opacity-100 visible"
                         : "max-h-0 opacity-0 invisible"
                         }`}
                 >
-                    <div className="border-t border-white/20 pt-4 pb-6">
+                    <div className="border-t border-white/30 pt-4 pb-6">
                         <nav className="space-y-1">
                             {NAV_ITEMS.map(({ label, href }) => {
                                 const id = href.slice(1);
@@ -242,39 +234,33 @@ export default function Header() {
                                         onClick={(e) => scrollToSection(e, href)}
                                         className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${isScrolled
                                             ? "text-slate-700 hover:bg-slate-50"
-                                            : "text-white hover:bg-white/20"
+                                            : "text-white hover:bg-white/20 drop-shadow-md"
                                             } ${active
                                                 ? isScrolled
                                                     ? "bg-blue-50 text-blue-700"
-                                                    : "bg-white/20 text-white"
+                                                    : "bg-white/30 text-white font-semibold"
                                                 : ""
                                             }`}
                                     >
                                         {label}
                                         {active && (
-                                            <span className="h-2 w-2 rounded-full bg-blue-400" />
+                                            <span className="h-2 w-2 rounded-full bg-blue-400 shadow-lg" />
                                         )}
                                     </a>
                                 );
                             })}
                         </nav>
 
-                        {/* MOBILE CONTACT */}
+                        {/* MOBILE CONTACT - Better contrast */}
                         <div className="mt-6 px-4 space-y-4">
                             <div
-                                className={`flex items-center gap-3 rounded-xl px-4 py-3 backdrop-blur-md border ${isScrolled
+                                className={`flex items-center gap-3 rounded-xl px-4 py-3 backdrop-blur-md border-2 ${isScrolled
                                     ? "bg-blue-50 border-blue-200"
-                                    : "bg-white/20 border-white/30"
+                                    : "bg-white/10 border-white/30 text-white shadow-lg"
                                     }`}
                             >
-                                <Phone
-                                    className={`h-5 w-5 ${isScrolled ? "text-blue-600" : "text-white"
-                                        }`}
-                                />
-                                <span
-                                    className={`font-medium ${isScrolled ? "text-blue-700" : "text-white"
-                                        }`}
-                                >
+                                <Phone className={`h-5 w-5 ${isScrolled ? "text-blue-600" : "text-white drop-shadow"}`} />
+                                <span className={`font-medium ${isScrolled ? "text-blue-700" : "text-white drop-shadow-md"}`}>
                                     +975-17587471
                                 </span>
                             </div>
@@ -284,7 +270,7 @@ export default function Header() {
                                     scrollToSection(e, "#contact");
                                     setIsOpen(false);
                                 }}
-                                className="w-full rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition hover:shadow-xl active:scale-95"
+                                className="w-full rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition hover:shadow-xl hover:from-blue-600 hover:to-blue-700 active:scale-95 ring-2 ring-white/20"
                             >
                                 CONTACT US
                             </button>

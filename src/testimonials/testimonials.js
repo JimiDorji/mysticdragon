@@ -72,7 +72,7 @@ export default function Testimonials() {
         { value: "500+", label: "Happy Travelers" },
         { value: "4.9★", label: "Average Rating" },
         { value: "98%", label: "Would Recommend" },
-        { value: "15+", label: "Years Experience" },
+        { value: "3+", label: "Years Experience" },
     ];
 
     return (
